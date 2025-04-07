@@ -85,14 +85,14 @@ export default function Portfolio() {
   ]
 
   const skills = [
-    { category: "Frontend", items: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"] },
-    { category: "Backend", items: ["Node.js", "Express", "MongoDB", "SQL", "Firebase"] },
-    { category: "Herramientas", items: ["Git", "GitHub", "VS Code", "Figma", "Responsive Design"] },
+    { category: "Frontend", items: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS","SASS","Astro"] },
+    { category: "Backend", items: ["Node.js", "Express", "MongoDB", "SQL", "Postgres","PostGreSQL","Prisma", "Sequelize", "PHP"] },
+    { category: "Herramientas", items: ["Git", "GitHub", "VS Code", "Figma","Adobe XD", "Responsive Design"] },
   ]
 
   const projects = [
     {
-      title: "E-commerce App",
+      title: "La Tribuna",
       description: "Una aplicación de comercio electrónico con carrito de compras y pasarela de pago.",
       technologies: ["React", "Node.js", "MongoDB"],
       image: "/placeholder.svg?height=200&width=350",
@@ -314,30 +314,36 @@ export default function Portfolio() {
 
                   <div className="mt-12 flex gap-4">
                     <a
-                      href="#"
-                      className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
+                      href="https://github.com/abecerraguz"
+                      className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-lime-400 transition-colors"
                       aria-label="GitHub"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <Github size={20} />
                     </a>
                     <a
-                      href="#"
-                      className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
+                      href="https://www.linkedin.com/in/abecerraguz/"
+                      className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-lime-400 transition-colors"
                       aria-label="LinkedIn"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <Linkedin size={20} />
                     </a>
                     <a
-                      href="#"
-                      className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
+                      href="mailto:abcerraguz@gmail.com"
+                      className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-lime-400 transition-colors"
                       aria-label="Email"
                     >
                       <Mail size={20} />
                     </a>
                     <a
-                      href="#"
-                      className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
+                      href="https://www.abecerraguz.com/"
+                      className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-lime-400 transition-colors"
                       aria-label="Website"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <Globe size={20} />
                     </a>
@@ -381,7 +387,7 @@ export default function Portfolio() {
           >
             <div className="container mx-auto px-4">
               <div className="max-w-3xl mx-auto text-center mb-16">
-                <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/10 dark:text-emerald-400">
+                <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/10 dark:text-lime-400">
                   Sobre mí
                 </Badge>
                 <h2 className="text-3xl font-bold mb-4">Conóceme mejor</h2>
@@ -393,22 +399,20 @@ export default function Portfolio() {
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                   <h3 className="text-2xl font-semibold mb-4">Mi historia</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6">
-                    Soy un desarrollador web con pasión por aprender nuevas tecnologías y crear soluciones innovadoras.
-                    Mi objetivo es combinar diseño y funcionalidad para crear experiencias de usuario excepcionales.
-                  </p>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6">
-                    Actualmente estoy enfocado en el desarrollo frontend con React, pero también tengo experiencia con
-                    Node.js y bases de datos. Me encanta resolver problemas y colaborar en equipos multidisciplinarios.
-                  </p>
+
+                  <p className="text-gray-600 dark:text-gray-300 mb-6">Soy un diseñador, Máster en Diseño y Comunicación Multimedia, y desarrollador web con pasión por seguir aprendiendo nuevas tecnologías y crear soluciones innovadoras. Mi objetivo es combinar diseño y funcionalidad para ofrecer experiencias de usuario excepcionales.</p>
+
+                  <p className="text-gray-600 dark:text-gray-300 mb-6">Actualmente estoy enfocado en el desarrollo frontend con Next.js y React, aunque también cuento con experiencia en Node.js y bases de datos. Me encanta resolver problemas, aprender constantemente y colaborar en equipos multidisciplinarios.</p>
+
+                  <p className="text-gray-600 dark:text-gray-300 mb-6">Me desempeño como Diseñador UI & Front-End en Publimetro, además de ser académico en Desafío Latam. Soy egresado del Bootcamp de Desarrollo Full-Stack de Coding Dojo, lo que me ha permitido fortalecer mis habilidades tanto en frontend como en backend.</p>
 
                   <div className="grid grid-cols-2 gap-4 mt-8">
                     <div className="p-4 rounded-lg bg-white/80 dark:bg-gray-800/80 shadow-sm backdrop-blur-sm">
-                      <div className="text-3xl font-bold text-emerald-500 dark:text-emerald-400 mb-1">2+</div>
+                      <div className="text-3xl font-bold text-amber-500 dark:text-amber-400 mb-1">16+</div>
                       <div className="text-gray-600 dark:text-gray-300">Años de experiencia</div>
                     </div>
                     <div className="p-4 rounded-lg bg-white/80 dark:bg-gray-800/80 shadow-sm backdrop-blur-sm">
-                      <div className="text-3xl font-bold text-purple-500 dark:text-purple-400 mb-1">10+</div>
+                      <div className="text-3xl font-bold text-lime-500 dark:text-lime-500 mb-1">10+</div>
                       <div className="text-gray-600 dark:text-gray-300">Proyectos completados</div>
                     </div>
                   </div>
@@ -433,7 +437,7 @@ export default function Portfolio() {
                               key={item}
                               className="p-3 rounded-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 flex items-center gap-2"
                             >
-                              <div className="w-2 h-2 rounded-full bg-gradient-to-r from-emerald-500 to-purple-500"></div>
+                              <div className="w-2 h-2 rounded-full bg-gradient-to-r from-lime-500 to-purple-500"></div>
                               <span>{item}</span>
                             </div>
                           ))}
@@ -462,7 +466,7 @@ export default function Portfolio() {
           >
             <div className="container mx-auto px-4">
               <div className="max-w-3xl mx-auto text-center mb-16">
-                <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/10 dark:text-emerald-400">
+                <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/10 dark:text-lime-400">
                   Proyectos
                 </Badge>
                 <h2 className="text-3xl font-bold mb-4">Mi trabajo reciente</h2>
@@ -550,7 +554,7 @@ export default function Portfolio() {
           >
             <div className="container mx-auto px-4">
               <div className="max-w-3xl mx-auto text-center mb-16">
-                <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/10 dark:text-emerald-400">
+                <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/10 dark:text-lime-400">
                   Educación
                 </Badge>
                 <h2 className="text-3xl font-bold mb-4">Mi formación académica</h2>
@@ -608,7 +612,7 @@ export default function Portfolio() {
           >
             <div className="container mx-auto px-4">
               <div className="max-w-3xl mx-auto text-center mb-16">
-                <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/10 dark:text-emerald-400">
+                <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/10 dark:text-lime-400">
                   Contacto
                 </Badge>
                 <h2 className="text-3xl font-bold mb-4">¿Hablamos?</h2>
