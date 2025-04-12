@@ -37,7 +37,7 @@ export async function BlogSection() {
         <div className="max-w-6xl mx-auto">
 
         <div className="max-w-3xl mx-auto text-center mb-16">
-                    <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/10 dark:text-lime-400">
+                    <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/10 dark:text-lime-400 hover:bg-emerald-500/20 dark:hover:bg-emerald-400/20">
                       Blog
                     </Badge>
                     <h2 className="text-3xl font-bold mb-4">Articulos de interes</h2>
@@ -82,7 +82,7 @@ export async function BlogSection() {
                         )}
 
                         <div className={`${imageUrl ? "md:w-2/3" : "w-full"}`}>
-                          <Badge className="mb-5 bg-emerald-500/10 text-emerald-500 dark:bg-transparent dark:text-lime-600 p-0">
+                          <Badge className="mb-5 bg-emerald-500/10 text-emerald-500 dark:bg-transparent dark:text-lime-400 p-0">
                             <Calendar size={14} className="mr-1" />
                             <span>{formatDate(publishedAt)}</span>
 

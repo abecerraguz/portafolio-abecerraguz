@@ -53,7 +53,7 @@ export default function EducationSection() {
         >
             <div className="container mx-auto px-4">
                 <div className="max-w-3xl mx-auto text-center mb-16">
-                    <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/10 dark:text-lime-400">
+                    <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/10 dark:text-lime-400 hover:bg-emerald-500/20 dark:hover:bg-emerald-400/20">
                         Educación
                     </Badge>
                     <h2 className="text-3xl font-bold mb-4">Mi formación académica</h2>
@@ -81,7 +81,7 @@ export default function EducationSection() {
 
                             <Card className="flex-1 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200/50 dark:border-gray-700/50">
                                 <CardContent className="p-6">
-                                    <Badge className="mb-2 bg-purple-500/10 text-purple-500 dark:bg-lime-400/10 dark:text-lime-400">
+                                    <Badge className="mb-2 bg-emerald-500/10 text-emerald-700 dark:bg-emerald-400/10 dark:text-lime-400 hover:bg-emerald-500/20 dark:hover:bg-emerald-400/20">
                                         {item.period}
                                     </Badge>
                                     <h3 className="text-xl font-semibold mb-1">{item.title}</h3>

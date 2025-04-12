@@ -116,7 +116,7 @@ export default function ProjectsSection() {
         >
             <div className="container mx-auto px-4">
                 <div className="max-w-3xl mx-auto text-center mb-16">
-                    <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/10 dark:text-lime-400">
+                    <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/10 dark:text-lime-400 hover:bg-emerald-500/20 dark:hover:bg-emerald-400/20">
                         Proyectos
                     </Badge>
                     <h2 className="text-3xl font-bold mb-4">Mi trabajo reciente</h2>
