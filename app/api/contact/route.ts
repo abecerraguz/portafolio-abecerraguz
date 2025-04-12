@@ -34,8 +34,8 @@ export async function POST(request: NextRequest) {
 
     // Configurar el correo electrónico
     const mailOptions = {
-      from: `"Formulario de Contacto" <${process.env.EMAIL_USER || "info.bikeshoping@gmail.com"}>`,
-      to: process.env.EMAIL_TO || process.env.EMAIL_USER || "info.bikeshoping@gmail.com",
+      from: `"Formulario de Contacto" <${process.env.EMAIL_USER || "abcerraguz@gmail.com"}>`,
+      to: process.env.EMAIL_TO || process.env.EMAIL_USER || "abcerraguz@gmail.com",
       replyTo: email,
       subject: `Nuevo mensaje de contacto: ${subject}`,
       text: `

@@ -153,7 +153,7 @@ export default function ContactForm() {
               className={`w-full ${
                 !(isValid && dirty) || formStatus === "submitting"
                   ? "bg-gray-400 dark:bg-gray-600 cursor-not-allowed"
-                  : "bg-gradient-to-r from-emerald-500 to-purple-500 hover:from-emerald-600 hover:to-purple-600"
+                  : "bg-gradient-to-r from-lime-500 to-amber-500 hover:from-lime-600 hover:to-amber-600"
               } text-white border-0`}
               disabled={!(isValid && dirty) || formStatus === "submitting"}
             >
