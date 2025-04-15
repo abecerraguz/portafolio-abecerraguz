@@ -96,10 +96,10 @@ export async function BlogSection() {
                           </Link>
 
                           <p className="text-gray-500 dark:text-gray-400 mb-5 line-clamp-2">
-                            {
+                            {/* {
                               (content
                                 ? content.substring(0, 200).replace(/<[^>]*>/g, "") + "..."
-                                : "")}
+                                : "")} */}
                           </p>
 
                           <Link

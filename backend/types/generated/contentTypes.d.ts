@@ -381,7 +381,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    content: Schema.Attribute.Text;
+    content: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
