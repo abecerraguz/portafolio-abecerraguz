@@ -7,6 +7,7 @@ import { getStrapiMedia } from "@/lib/strapi"
 import { formatDate } from "@/lib/utils"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
+import RichTextRenderer from "@/components/RichTextRenderer"
 
 interface BlogPostPageProps {
   params: {
@@ -27,7 +28,10 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
     return {
       title: `${post.title} - Blog de TuNombre`,
-      description: post.content?.substring(0, 160).replace(/<[^>]*>/g, "") ?? "",
+      description:
+        typeof post.content === "string"
+          ? post.content?.substring(0, 160).replace(/<[^>]*>/g, "")
+          : post.title,
     }
   } catch (error) {
     console.error("Error generating metadata:", error)
@@ -42,9 +46,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   try {
     const post = await getBlogPostBySlug(params.slug)
 
-    if (!post) {
-      notFound()
-    }
+    if (!post) notFound()
 
     const {
       title,
@@ -88,14 +90,22 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
               {imageUrl && (
                 <div className="relative h-[400px] mb-8 rounded-lg overflow-hidden">
-                  <Image src={imageUrl} alt={imageAlt} fill className="object-cover" />
+                  <Image
+                    src={imageUrl}
+                    alt={imageAlt}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               )}
 
-              <div
-                className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-gray-900 dark:prose-headings:text-gray-100 prose-p:text-gray-600 dark:prose-p:text-gray-300"
-                dangerouslySetInnerHTML={{ __html: content }}
-              />
+              <section className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-gray-900 dark:prose-headings:text-gray-100 prose-p:text-gray-600 dark:prose-p:text-gray-300">
+                {Array.isArray(content) ? (
+                  <RichTextRenderer content={content} />
+                ) : (
+                  <p>Contenido no disponible o no es válido.</p>
+                )}
+              </section>
             </article>
           </div>
         </div>

@@ -6,6 +6,8 @@ import Link from "next/link"
 import { getRecentBlogPosts } from "@/services/blog-service"
 import { getStrapiMedia } from "@/lib/strapi"
 import { formatDate } from "@/lib/utils"
+import { extractSummary } from "@/src/lib/extract-summary"
+
 import {
   Code,
   User,
@@ -90,16 +92,13 @@ export async function BlogSection() {
                           </Badge>
 
                           <Link href={`/blog/${slug}`}>
-                            <h3 className="text-xl font-semibold hover:text-lime-400 transition-colors">
+                            <h3 className="text-xl font-semibold hover:text-lime-400 transition-colors mb-3">
                               {title}
                             </h3>
                           </Link>
 
                           <p className="text-gray-500 dark:text-gray-400 mb-5 line-clamp-2">
-                            {/* {
-                              (content
-                                ? content.substring(0, 200).replace(/<[^>]*>/g, "") + "..."
-                                : "")} */}
+                            {Array.isArray(content) ? extractSummary(content) : ""}
                           </p>
 
                           <Link

@@ -6,6 +6,8 @@ import Link from "next/link"
 import type { StrapiData, BlogPost } from "@/types/strapi"
 import { getStrapiMedia } from "@/lib/strapi"
 import { formatDate } from "@/lib/utils"
+import { extractSummary } from "@/src/lib/extract-summary"
+
 
 // interface BlogCardProps {
 //   post: StrapiData<BlogPost>
@@ -66,8 +68,8 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
             {title}
           </h3>
         </Link>
-        <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
-          {content?.substring(0, 150).replace(/<[^>]*>/g, "") + "..."}
+        <p className="text-gray-500 dark:text-gray-400 mb-5 line-clamp-2">
+          {Array.isArray(content) ? extractSummary(content) : ""}
         </p>
         <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mt-auto">
           <div className="flex items-center mr-4">

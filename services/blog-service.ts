@@ -12,7 +12,6 @@ interface BlogResponse {
 function buildUrl(path: string, params: Record<string, string>) {
 
   const query = new URLSearchParams(params).toString()
-  console.log('MIERDA---->', process.env)
   return `${process.env.NEXT_PUBLIC_STRAPI_URL}/api${path}?${query}`
 }
 
