@@ -7,15 +7,13 @@ import { getStrapiMedia } from "@/lib/strapi"
 import { formatDate } from "@/lib/utils"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
-import RichTextRenderer from "@/components/RichTextRenderer"
+// import RichTextRenderer from "@/components/RichTextRenderer"
+import ReactMarkdown from "react-markdown"
+import rehypeHighlight from "rehype-highlight"
 
-interface BlogPostPageProps {
-  params: {
-    slug: string
-  }
-}
-
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: { params: { slug: string } }
+): Promise<Metadata> {
   try {
     const post = await getBlogPostBySlug(params.slug)
 
@@ -30,7 +28,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       title: `${post.title} - Blog de TuNombre`,
       description:
         typeof post.content === "string"
-          ? post.content?.substring(0, 160).replace(/<[^>]*>/g, "")
+          ? post.content.substring(0, 160).replace(/<[^>]*>/g, "")
           : post.title,
     }
   } catch (error) {
@@ -42,7 +40,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   }
 }
 
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
+export default async function BlogPostPage(
+  { params }: { params: { slug: string } }
+) {
   try {
     const post = await getBlogPostBySlug(params.slug)
 
@@ -51,7 +51,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     const {
       title,
       content,
-      slug,
       publishedAt,
       featuredImages,
       category,
@@ -98,14 +97,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   />
                 </div>
               )}
-
-              <section className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-gray-900 dark:prose-headings:text-gray-100 prose-p:text-gray-600 dark:prose-p:text-gray-300">
-                {Array.isArray(content) ? (
-                  <RichTextRenderer content={content} />
-                ) : (
-                  <p>Contenido no disponible o no es válido.</p>
-                )}
-              </section>
+                <section className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-gray-900 dark:prose-headings:text-gray-100 prose-p:text-gray-600 dark:prose-p:text-gray-300 prose-pre:bg-gray-100 dark:prose-pre:bg-gray-800 prose-code:text-pink-600 dark:prose-code:text-pink-400">
+                  <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
+                    {typeof content === "string" ? content : "Contenido no disponible."}
+                  </ReactMarkdown>
+                </section>
             </article>
           </div>
         </div>

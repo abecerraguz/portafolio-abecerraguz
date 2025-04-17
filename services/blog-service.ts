@@ -78,6 +78,7 @@ export const getRecentBlogPosts = async (limit = 3): Promise<BlogPost[]> => {
       populate: "featuredImages",
       "pagination[pageSize]": limit.toString(),
       sort: "publishedAt:desc",
+      "filters[publishedAt][$notNull]": "true",
     }
 
     const res = await fetch(buildUrl(path, params), { cache: "no-store" })

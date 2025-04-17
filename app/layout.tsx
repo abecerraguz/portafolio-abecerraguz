@@ -1,5 +1,5 @@
-// app/layout.tsx (o src/app/layout.tsx)
 import type { Metadata } from 'next'
+import "highlight.js/styles/github.css"; // puedes elegir otro estilo si quieres
 import './globals.css'
 
 export const metadata: Metadata = {

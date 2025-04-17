@@ -32,6 +32,8 @@ export async function BlogSection() {
   try {
     const posts = await getRecentBlogPosts(3)
 
+    console.log('Mierda-->', posts )
+
     return (
     
       <section id="blog" className="py-20 relative">
