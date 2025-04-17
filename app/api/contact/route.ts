@@ -1,28 +1,29 @@
 import { type NextRequest, NextResponse } from "next/server"
 import nodemailer from "nodemailer"
+import { getAccessToken } from "@/src/lib/getAccessToken" // ajusta la ruta si es necesario
 
 export async function POST(request: NextRequest) {
   try {
-    // Obtener los datos del formulario
+
     const { name, email, subject, message } = await request.json()
 
-    // Validar que todos los campos requeridos estén presentes
     if (!name || !email || !subject || !message) {
       return NextResponse.json({ error: "Todos los campos son obligatorios" }, { status: 400 })
     }
 
-    console.log('Salida de process.env.EMAIL_USER--->', process.env.EMAIL_USER)
+    const accessToken = await getAccessToken()
 
-    // Configurar el transporter de Nodemailer con OAuth2 para Gmail
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
       auth: {
         type: "OAuth2",
-        user: process.env.EMAIL_USER || "abcerraguz@gmail.com",
+        user: process.env.EMAIL_USER,
         clientId: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
         refreshToken: process.env.REFRESH_TOKEN,
-        accessToken: process.env.ACCESS_TOKEN,
+        accessToken: `${accessToken}`
       },
     })
 
@@ -32,10 +33,9 @@ export async function POST(request: NextRequest) {
       throw new Error("Error de configuración del servidor de correo")
     })
 
-    // Configurar el correo electrónico
     const mailOptions = {
-      from: `"Formulario de Contacto" <${process.env.EMAIL_USER || "abcerraguz@gmail.com"}>`,
-      to: process.env.EMAIL_TO || process.env.EMAIL_USER || "abcerraguz@gmail.com",
+      from: `"Formulario de Contacto" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_TO || process.env.EMAIL_USER,
       replyTo: email,
       subject: `Nuevo mensaje de contacto: ${subject}`,
       text: `
@@ -60,14 +60,11 @@ export async function POST(request: NextRequest) {
       `,
     }
 
-    // Enviar el correo electrónico
     await transporter.sendMail(mailOptions)
 
-    // Responder con éxito
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error("Error al enviar el correo:", error)
     return NextResponse.json({ error: "Error al enviar el mensaje" }, { status: 500 })
   }
 }
-
