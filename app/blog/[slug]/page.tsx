@@ -11,6 +11,8 @@ import type { Metadata } from "next"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import rehypeHighlight from "rehype-highlight"
+import NavSection from "@/app/page-sections/nav-section"
+import { FooterSection } from "@/app/page-sections/footer-section"
 
 export async function generateMetadata(
   { params }: { params: { slug: string } }
@@ -61,55 +63,59 @@ export default async function BlogPostPage(
     const imageAlt = coverImage?.alternativeText || title
 
     return (
-      <main className="pt-32 pb-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <Link
-              href="/blog"
-              className="inline-flex items-center text-teal-500 dark:text-teal-400 hover:underline mb-8"
-            >
-              <ArrowLeft size={16} className="mr-2" />
-              Volver al blog
-            </Link>
+      <>
+      <NavSection/>
+        <main className="pt-32 pb-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <Link
+                href="/"
+                className="inline-flex items-center text-teal-500 dark:text-teal-400 hover:underline mb-8"
+              >
+                <ArrowLeft size={16} className="mr-2" />
+                Volver al blog
+              </Link>
 
-            <article>
-              <header className="mb-8">
-                {category && (
-                  <Badge className="mb-4 bg-teal-500/10 text-teal-500 dark:bg-teal-400/10 dark:text-teal-400">
-                    {category.name}
-                  </Badge>
-                )}
-                <h1 className="text-4xl font-bold mb-4">{title}</h1>
-                <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                  <div className="flex items-center mr-4">
-                    <Calendar size={14} className="mr-1" />
-                    <span>{formatDate(publishedAt)}</span>
+              <article>
+                <header className="mb-8">
+                  {category && (
+                    <Badge className="mb-4 bg-teal-500/10 text-teal-500 dark:bg-teal-400/10 dark:text-teal-400">
+                      {category.name}
+                    </Badge>
+                  )}
+                  <h1 className="text-4xl font-bold mb-4">{title}</h1>
+                  <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                    <div className="flex items-center mr-4">
+                      <Calendar size={14} className="mr-1" />
+                      <span>{formatDate(publishedAt)}</span>
+                    </div>
                   </div>
-                </div>
-              </header>
+                </header>
 
-              {/* {imageUrl && (
-                <div className="relative h-[400px] mb-8 rounded-lg overflow-hidden">
-                  <Image
-                    src={imageUrl}
-                    alt={imageAlt}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              )} */}
-                <section className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-gray-900 dark:prose-headings:text-gray-100 prose-p:text-gray-600 dark:prose-p:text-gray-300 prose-pre:bg-gray-100 dark:prose-pre:bg-gray-800 prose-code:text-pink-600 dark:prose-code:text-pink-400">
-                    <ReactMarkdown 
-                          remarkPlugins={[remarkGfm]}
-                          rehypePlugins={[rehypeHighlight]}
-                    >
-                    {typeof content === "string" ? content : "Contenido no disponible."}
-                  </ReactMarkdown>
-                </section>
-            </article>
+                {/* {imageUrl && (
+                  <div className="relative h-[400px] mb-8 rounded-lg overflow-hidden">
+                    <Image
+                      src={imageUrl}
+                      alt={imageAlt}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                )} */}
+                  <section className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-gray-900 dark:prose-headings:text-gray-100 prose-p:text-gray-600 dark:prose-p:text-gray-300 prose-pre:bg-gray-100 dark:prose-pre:bg-gray-800 prose-code:text-pink-600 dark:prose-code:text-pink-400">
+                      <ReactMarkdown 
+                            remarkPlugins={[remarkGfm]}
+                            rehypePlugins={[rehypeHighlight]}
+                      >
+                      {typeof content === "string" ? content : "Contenido no disponible."}
+                    </ReactMarkdown>
+                  </section>
+              </article>
+            </div>
           </div>
-        </div>
-      </main>
+        </main>
+      <FooterSection/>
+      </>
     )
   } catch (error) {
     console.error("Error in BlogPostPage:", error)
