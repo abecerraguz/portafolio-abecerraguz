@@ -7,12 +7,13 @@ import { getStrapiMedia } from "@/lib/strapi"
 import { formatDate } from "@/lib/utils"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
-// import RichTextRenderer from "@/components/RichTextRenderer"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import rehypeHighlight from "rehype-highlight"
-import NavSection from "@/app/page-sections/nav-section"
 import { FooterSection } from "@/app/page-sections/footer-section"
+import ContactSection from "@/app/page-sections/contact-section"
+import NavWrapper from "@/components/NavWrapper" 
+
 
 export async function generateMetadata(
   { params }: { params: { slug: string } }
@@ -64,13 +65,13 @@ export default async function BlogPostPage(
 
     return (
       <>
-      <NavSection/>
+      <NavWrapper />
         <main className="pt-32 pb-20">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <Link
                 href="/"
-                className="inline-flex items-center text-teal-500 dark:text-teal-400 hover:underline mb-8"
+                className="inline-flex items-center text-lime-500 dark:text-lime-400 hover:underline mb-8"
               >
                 <ArrowLeft size={16} className="mr-2" />
                 Volver al blog
@@ -114,6 +115,7 @@ export default async function BlogPostPage(
             </div>
           </div>
         </main>
+      <ContactSection/>
       <FooterSection/>
       </>
     )

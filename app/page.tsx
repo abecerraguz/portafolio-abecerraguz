@@ -5,6 +5,8 @@ import ProjectsSection from "@/app/page-sections/projects-section"
 import EducationSection from "@/app/page-sections/education-section"
 import ContactSection from "@/app/page-sections/contact-section"
 import { BlogSection } from "@/app/page-sections/blog-section"
+import HeroSection from "./page-sections/hero-section"
+import NavWrapper from "@/components/NavWrapper" 
 
 export default function Home() {
 
@@ -13,6 +15,7 @@ export default function Home() {
  
         <>
         <NavSection/>
+          <HeroSection/>
           <AboutSection/>
           <ProjectsSection/>
           <EducationSection/>
