@@ -17,10 +17,11 @@ function buildUrl(path: string, params: Record<string, string>) {
 
 // Traer posts paginados
 export const getBlogPosts = async (page = 1, pageSize = 6): Promise<BlogResponse> => {
+
   try {
     const path = `/${COLLECTION_NAME}`
     const params = {
-      populate: "featuredImages",
+      populate: "coverImage",
       "pagination[page]": page.toString(),
       "pagination[pageSize]": pageSize.toString(),
       sort: "publishedAt:desc",
@@ -55,7 +56,7 @@ export const getBlogPostBySlug = async (slug: string): Promise<BlogPost | null> 
   try {
     const path = `/${COLLECTION_NAME}`
     const params = {
-      populate: "featuredImages",
+      populate: "coverImage",
       "filters[slug][$eq]": slug,
     }
 
@@ -74,8 +75,9 @@ export const getBlogPostBySlug = async (slug: string): Promise<BlogPost | null> 
 export const getRecentBlogPosts = async (limit = 3): Promise<BlogPost[]> => {
   try {
     const path = `/${COLLECTION_NAME}`
+
     const params = {
-      populate: "featuredImages",
+      populate: "coverImage",
       "pagination[pageSize]": limit.toString(),
       sort: "publishedAt:desc",
       "filters[publishedAt][$notNull]": "true",

@@ -26,7 +26,7 @@ export interface BlogPost {
   createdAt: string
   updatedAt: string
   publishedAt: string
-  featuredImages?: {
+  coverImage?: {
     alternativeText?: string
     url: string
     formats?: {

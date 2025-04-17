@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Calendar } from "lucide-react"
+import { Calendar, ArrowRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { getRecentBlogPosts } from "@/services/blog-service"
@@ -8,68 +8,43 @@ import { getStrapiMedia } from "@/lib/strapi"
 import { formatDate } from "@/lib/utils"
 import { extractSummary } from "@/src/lib/extract-summary"
 
-import {
-  Code,
-  User,
-  Briefcase,
-  GraduationCap,
-  Mail,
-  Github,
-  Linkedin,
-  ExternalLink,
-  ChevronRight,
-  Menu,
-  X,
-  ArrowRight,
-  Moon,
-  Sun,
-  Globe,
-  BookOpen,
-} from "lucide-react"
-
-// Este es un componente de servidor que se renderiza completamente en el servidor
 export async function BlogSection() {
   try {
     const posts = await getRecentBlogPosts(3)
 
-    console.log('Mierda-->', posts )
-
     return (
-    
       <section id="blog" className="py-20 relative">
-
         <div className="max-w-6xl mx-auto">
-
-        <div className="max-w-3xl mx-auto text-center mb-16">
-                    <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/10 dark:text-lime-400 hover:bg-emerald-500/20 dark:hover:bg-emerald-400/20">
-                      Blog
-                    </Badge>
-                    <h2 className="text-3xl font-bold mb-4">Articulos de interes</h2>
-                    <p className="text-gray-600 dark:text-gray-300">
-                      Comparto mis conocimientos, experiencias y consejos sobre desarrollo web y tecnología.
-                    </p>
-                  </div>
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/10 dark:text-lime-400 hover:bg-emerald-500/20 dark:hover:bg-emerald-400/20">
+              Blog
+            </Badge>
+            <h2 className="text-3xl font-bold mb-4">Artículos de interés</h2>
+            <p className="text-gray-600 dark:text-gray-300">
+              Comparto mis conocimientos, experiencias y consejos sobre desarrollo web y tecnología.
+            </p>
+          </div>
 
           {posts && posts.length > 0 ? (
             <>
               <div className="space-y-8">
                 {posts.map((post) => {
-              const {
-                id,
-                title,
-                slug,
-                content,
-                publishedAt,
-                featuredImages,
-                category,
-              } = post
-              const imageUrl = getStrapiMedia(
-                featuredImages?.formats?.medium?.url || featuredImages?.url || null
-              )
-            const categoryAttributes = category
+
+                  const {
+                    id,
+                    title,
+                    slug,
+                    content,
+                    publishedAt,
+                    coverImage,
+                    category,
+                  } = post
+
+                  const imageUrl = getStrapiMedia(
+                    coverImage?.formats?.medium?.url || coverImage?.url || null
+                  )
 
                   return (
-                    
                     <div key={id} className="relative pl-8 border-l-2 border-gray-800 pb-8">
                       <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gradient-to-r from-lime-500 to-amber-500" />
 
@@ -89,8 +64,9 @@ export async function BlogSection() {
                           <Badge className="mb-5 bg-emerald-500/10 text-emerald-500 dark:bg-transparent dark:text-lime-400 p-0">
                             <Calendar size={14} className="mr-1" />
                             <span>{formatDate(publishedAt)}</span>
-
-                            {category && <Badge className="ml-3 bg-gray-800 text-gray-300">{category.name}</Badge>}
+                            {category && (
+                              <Badge className="ml-3 bg-gray-800 text-gray-300">{category.name}</Badge>
+                            )}
                           </Badge>
 
                           <Link href={`/blog/${slug}`}>
@@ -109,7 +85,6 @@ export async function BlogSection() {
                           >
                             Leer más <ArrowRight className="ml-2 h-4 w-4" />
                           </Link>
-               
                         </div>
                       </div>
                     </div>
@@ -131,12 +106,9 @@ export async function BlogSection() {
               </Button>
             </div>
           )}
-          
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/10 to-transparent dark:from-black/20 dark:to-transparent"></div>
       </section>
-      
-     
     )
   } catch (error) {
     console.error("Error in BlogSection:", error)

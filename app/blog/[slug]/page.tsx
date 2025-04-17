@@ -9,6 +9,7 @@ import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 // import RichTextRenderer from "@/components/RichTextRenderer"
 import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
 import rehypeHighlight from "rehype-highlight"
 
 export async function generateMetadata(
@@ -52,12 +53,12 @@ export default async function BlogPostPage(
       title,
       content,
       publishedAt,
-      featuredImages,
+      coverImage,
       category,
     } = post
 
-    const imageUrl = getStrapiMedia(featuredImages?.url ?? null)
-    const imageAlt = featuredImages?.alternativeText || title
+    const imageUrl = getStrapiMedia(coverImage?.url ?? null)
+    const imageAlt = coverImage?.alternativeText || title
 
     return (
       <main className="pt-32 pb-20">
@@ -87,7 +88,7 @@ export default async function BlogPostPage(
                 </div>
               </header>
 
-              {imageUrl && (
+              {/* {imageUrl && (
                 <div className="relative h-[400px] mb-8 rounded-lg overflow-hidden">
                   <Image
                     src={imageUrl}
@@ -96,9 +97,12 @@ export default async function BlogPostPage(
                     className="object-cover"
                   />
                 </div>
-              )}
+              )} */}
                 <section className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-gray-900 dark:prose-headings:text-gray-100 prose-p:text-gray-600 dark:prose-p:text-gray-300 prose-pre:bg-gray-100 dark:prose-pre:bg-gray-800 prose-code:text-pink-600 dark:prose-code:text-pink-400">
-                  <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
+                    <ReactMarkdown 
+                          remarkPlugins={[remarkGfm]}
+                          rehypePlugins={[rehypeHighlight]}
+                    >
                     {typeof content === "string" ? content : "Contenido no disponible."}
                   </ReactMarkdown>
                 </section>
