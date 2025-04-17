@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Loader2, AlertCircle } from "lucide-react"
 import SuccessModal from "./success-modal"
 
-// Esquema de validación con Yup
+// Esquema de validación con Yupppppppppp
 const ContactSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, "Nombre demasiado corto")
