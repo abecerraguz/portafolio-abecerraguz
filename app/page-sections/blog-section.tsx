@@ -38,6 +38,7 @@ export async function BlogSection() {
                     publishedAt,
                     coverImage,
                     category,
+                    excerpt
                   } = post
 
                   const imageUrl = getStrapiMedia(
@@ -76,7 +77,7 @@ export async function BlogSection() {
                           </Link>
 
                           <p className="text-gray-500 dark:text-gray-400 mb-5 line-clamp-2">
-                            {Array.isArray(content) ? extractSummary(content) : ""}
+                              {excerpt.length > 180 ? `${excerpt.slice(0, 180)}...` : excerpt}
                           </p>
 
                           <Link
