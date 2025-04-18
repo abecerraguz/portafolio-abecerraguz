@@ -78,6 +78,9 @@ module.exports = {
           950: "#3b0764",
         },
       },
+      fontFamily: {
+        sans: ['var(--font-inter)', 'sans-serif'],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
