@@ -57,7 +57,7 @@ export default function EducationSection() {
                         Educación
                     </Badge>
                     <h2 className="text-3xl font-bold mb-4">Mi formación académica</h2>
-                    <p className="text-gray-600 dark:text-gray-300">Mi trayectoria educativa y formación profesional.</p>
+                    <p className="text-gray-600 dark:text-gray-400 text-xl">Mi trayectoria educativa y formación profesional.</p>
                 </div>
 
                 <div className="max-w-4xl mx-auto">

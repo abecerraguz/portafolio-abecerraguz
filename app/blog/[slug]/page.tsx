@@ -66,7 +66,7 @@ export default async function BlogPostPage(
     return (
       <>
       <NavWrapper />
-        <main className="pt-32 pb-20">
+        <main className="pt-32 pb-20 relative">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <Link
@@ -114,6 +114,7 @@ export default async function BlogPostPage(
               </article>
             </div>
           </div>
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/10 to-transparent dark:from-black/20 dark:to-transparent"></div>
         </main>
       <ContactSection/>
       <FooterSection/>

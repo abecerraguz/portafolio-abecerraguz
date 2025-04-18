@@ -27,7 +27,7 @@ export default function AboutSection() {
           Sobre mí
         </Badge>
         <h2 className="text-3xl font-bold mb-4">Conóceme mejor</h2>
-        <p className="text-gray-600 dark:text-gray-300">
+        <p className="text-gray-600 dark:text-gray-400 text-xl">
           Soy un desarrollador web con pasión por aprender nuevas tecnologías y crear soluciones innovadoras.
         </p>
       </div>

@@ -20,7 +20,7 @@ export async function BlogSection() {
               Blog
             </Badge>
             <h2 className="text-3xl font-bold mb-4">Artículos de interés</h2>
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-gray-600 dark:text-gray-400 text-xl">
               Comparto mis conocimientos, experiencias y consejos sobre desarrollo web y tecnología.
             </p>
           </div>
@@ -46,9 +46,9 @@ export async function BlogSection() {
                   )
 
                   return (
-                    <div key={id} className="relative pl-8 border-l-2 border-gray-800 pb-8">
-                      <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gradient-to-r from-lime-500 to-amber-500" />
 
+                    <div key={id} className="relative pb-8 container mx-auto px-4">
+                      {/* <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gradient-to-r from-lime-500 to-amber-500 hidden sm:block pt-1" /> */}
                       <div className="flex flex-col md:flex-row gap-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200/50 dark:border-gray-700/50 rounded-lg p-5">
                         {imageUrl && (
                           <div className="md:w-1/3 h-48 relative rounded-lg overflow-hidden">
@@ -88,6 +88,7 @@ export async function BlogSection() {
                           </Link>
                         </div>
                       </div>
+                      
                     </div>
                   )
                 })}

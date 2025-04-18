@@ -24,7 +24,7 @@ export default function ContactSection() {
                       Contacto
                     </Badge>
                     <h2 className="text-3xl font-bold mb-4">¿Hablamos?</h2>
-                    <p className="text-gray-600 dark:text-gray-300">
+                    <p className="text-gray-600 dark:text-gray-400 text-xl">
                       ¿Interesado en trabajar juntos o tienes alguna pregunta?
                     </p>
                   </div>
