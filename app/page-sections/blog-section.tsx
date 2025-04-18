@@ -49,7 +49,7 @@ export async function BlogSection() {
 
                     <div key={id} className="relative pb-8 container mx-auto px-4">
                       {/* <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gradient-to-r from-lime-500 to-amber-500 hidden sm:block pt-1" /> */}
-                      <div className="flex flex-col md:flex-row gap-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200/50 dark:border-gray-700/50 rounded-lg p-5">
+                      <div className="flex flex-col md:flex-row gap-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200/50 dark:border-gray-700/50 rounded-lg p-6 border">
                         {imageUrl && (
                           <div className="md:w-1/3 h-48 relative rounded-lg overflow-hidden">
                             <Image
@@ -76,7 +76,7 @@ export async function BlogSection() {
                             </h3>
                           </Link>
 
-                          <p className="text-gray-500 dark:text-gray-400 mb-5 line-clamp-2">
+                          <p className="text-gray-500 dark:text-gray-400 mb-3 line-clamp-2">
                               {excerpt.length > 180 ? `${excerpt.slice(0, 180)}...` : excerpt}
                           </p>
 
