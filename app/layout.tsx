@@ -17,6 +17,9 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Portafolio Alejandro Becerra',
   description: 'Portafolio desarrollado con NextJS, Tailwind, TypeScript',
+  icons: {
+    icon: "/favicon.svg",
+  },
   generator: 'NextJS 15.2.4',
 }
 

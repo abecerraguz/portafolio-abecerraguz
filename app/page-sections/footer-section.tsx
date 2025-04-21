@@ -1,32 +1,47 @@
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Calendar } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
-import { getRecentBlogPosts } from "@/services/blog-service"
-import { getStrapiMedia } from "@/lib/strapi"
-import { formatDate } from "@/lib/utils"
+"use client"
+
+import { useEffect, useState } from 'react'
 import {
   Mail,
   Github,
   Linkedin,
+  ArrowUp
 
 } from "lucide-react"
 
 // Este es un componente de servidor que se renderiza completamente en el servidor
-export async function FooterSection() {
+export function FooterSection() {
   try {
+    const [showButton, setShowButton] = useState(false)
+
+    useEffect(() => {
+      const handleScroll = () => {
+        if (window.scrollY > 200) {
+          setShowButton(true)
+        } else {
+          setShowButton(false)
+        }
+      }
+
+      window.addEventListener('scroll', handleScroll)
+      return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+
     return (
-        <> 
-       {/* Footer */}
-       <footer
+      <>
+        {/* Footer */}
+        <footer
           className="py-8 border-t border-gray-200 dark:border-gray-800"
-          // style={{
-          //   background:
-          //     theme === "dark"
-          //       ? "linear-gradient(to bottom, #0f172a, #0a1222)"
-          //       : "linear-gradient(to bottom, #f8fafc, #f1f5f9)",
-          // }}
+        // style={{
+        //   background:
+        //     theme === "dark"
+        //       ? "linear-gradient(to bottom, #0f172a, #0a1222)"
+        //       : "linear-gradient(to bottom, #f8fafc, #f1f5f9)",
+        // }}
         >
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row justify-between items-center">
@@ -40,6 +55,18 @@ export async function FooterSection() {
               <div className="text-gray-500 dark:text-gray-400 text-sm">
                 © {new Date().getFullYear()} AbecerraGuz Todos los derechos reservados.
               </div>
+
+              <button
+                onClick={scrollToTop}
+                className={`
+    fixed bottom-6 right-6 p-3 rounded-full bg-black text-white 
+    shadow-lg z-50 transition-opacity duration-500 ease-in-out
+    ${showButton ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
+  `}
+                aria-label="Volver arriba"
+              >
+                <ArrowUp size={20} />
+              </button>
 
               <div className="flex gap-4 mt-4 md:mt-0">
                 <a
@@ -67,7 +94,7 @@ export async function FooterSection() {
             </div>
           </div>
         </footer>
-      </> 
+      </>
     )
   } catch (error) {
     console.error("Error in FooterSection:", error)
