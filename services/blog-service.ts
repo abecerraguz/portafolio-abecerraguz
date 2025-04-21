@@ -17,7 +17,6 @@ function buildUrl(path: string, params: Record<string, string>) {
 
 // Traer posts paginados
 export const getBlogPosts = async (page = 1, pageSize = 6): Promise<BlogResponse> => {
-
   try {
     const path = `/${COLLECTION_NAME}`
     const params = {
@@ -27,7 +26,10 @@ export const getBlogPosts = async (page = 1, pageSize = 6): Promise<BlogResponse
       sort: "publishedAt:desc",
     }
 
-    const res = await fetch(buildUrl(path, params), { cache: "no-store" })
+    const res = await fetch(buildUrl(path, params), {
+      next: { revalidate: 60 } // ✅ regenerar cada 60 segundos
+    })
+
     if (!res.ok) throw new Error("Error fetching posts")
 
     const json = await res.json()
@@ -50,6 +52,7 @@ export const getBlogPosts = async (page = 1, pageSize = 6): Promise<BlogResponse
     }
   }
 }
+
 
 // Traer post único por slug
 export const getBlogPostBySlug = async (slug: string): Promise<BlogPost | null> => {
@@ -83,12 +86,15 @@ export const getRecentBlogPosts = async (limit = 3): Promise<BlogPost[]> => {
       "filters[publishedAt][$notNull]": "true",
     }
 
-    const res = await fetch(buildUrl(path, params), { cache: "no-store" })
-    const json = await res.json()
+    const res = await fetch(buildUrl(path, params), {
+      next: { revalidate: 60 }
+    })
 
+    const json = await res.json()
     return json.data as BlogPost[]
   } catch (error) {
     console.error("Error fetching recent blog posts:", error)
     return []
   }
 }
+

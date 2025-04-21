@@ -94,11 +94,11 @@ export async function BlogSection() {
                 })}
               </div>
 
-              <div className="mt-8 text-center">
+              {/* <div className="mt-8 text-center">
                 <Button asChild variant="outline" className="border-gray-700 hover:bg-gray-800">
                   <Link href="/blog">Ver todos los artículos</Link>
                 </Button>
-              </div>
+              </div> */}
             </>
           ) : (
             <div className="max-w-4xl mx-auto">
