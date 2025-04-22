@@ -188,7 +188,10 @@ export default function NavSection({ itemsToShow, linkOverrides, linkLabes }: Na
                     className="flex items-center justify-between p-4 rounded-lg border border-gray-200 dark:border-gray-800"
                     onClick={(e) => {
                       const override = linkOverrides?.[item.id]
-                      if (!override?.startsWith("/#")) return // si es navegación, no hacer scroll
+                      if (!override?.startsWith("/#")) {
+                        setMobileMenuOpen(false) // lo cierras aquí si es externo
+                        return
+                      }
                       e.preventDefault()
                       scrollToSection(item.id)
                     }}
