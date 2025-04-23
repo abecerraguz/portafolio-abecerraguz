@@ -65,6 +65,38 @@ export default async function BlogPostPage(
 
     return (
       <>
+       {/* 👇 Aquí insertamos el JSON-LD */}
+    <head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: title,
+            description: typeof content === "string" ? content.substring(0, 160).replace(/<[^>]*>/g, "") : title,
+            image: imageUrl ? [imageUrl] : undefined,
+            datePublished: publishedAt,
+            author: {
+              "@type": "Person",
+              name: "Alejandro Becerra Guzmán",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Alejandro Becerra Portfolio",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://www.abecerraguz.com/favicon.svg",
+              },
+            },
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `https://www.abecerraguz.com/blog/${params.slug}`,
+            },
+          }),
+        }}
+      />
+    </head>
       <NavWrapper />
         <main className="pt-32 pb-20 relative">
           <div className="container mx-auto px-4">
