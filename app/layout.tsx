@@ -2,18 +2,8 @@ import type { Metadata } from 'next'
 // import "highlight.js/styles/github.css"; // puedes elegir otro estilo si quieres
 // import "highlight.js/styles/monokai.css";
 import "highlight.js/styles/vs2015.css"
-
 import './globals.css'
-import Analytics from "@/components/Analytics"
-
-// import { Inter } from 'next/font/google'
-
-// const inter = Inter({
-//   subsets: ['latin'],
-//   variable: '--font-inter',
-//   display: 'swap',
-//   weight: ['300', '400', '500', '600', '700', '800']
-// })
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: 'Alejandro Becerra Guzmán – Portafolio Web',
@@ -71,8 +61,13 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <Analytics/>
+
         {children}
+        {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID &&
+        process.env.NODE_ENV === "production" && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID!}
+          />
+        )}
       </body>
     </html>
   )
