@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import "highlight.js/styles/vs2015.css"
 
 import './globals.css'
+import Analytics from "@/components/Analytics"
 
 // import { Inter } from 'next/font/google'
 
@@ -63,13 +64,16 @@ export default function RootLayout({
               jobTitle: "Diseñador UX/UI Desarrollador Fullstack",
               sameAs: [
                 "https://github.com/abecerraguz",
-                "https://www.linkedin.com/in/abecerraguz" 
+                "https://www.linkedin.com/in/abecerraguz"
               ]
             }),
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <Analytics/>
+        {children}
+      </body>
     </html>
   )
 }
