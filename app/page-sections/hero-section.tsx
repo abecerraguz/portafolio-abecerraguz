@@ -123,7 +123,7 @@ export default function HeroSection() {
                   className="order-2 md:order-1"
                 >
                   <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/10 dark:text-lime-400 hover:bg-emerald-500/20 dark:hover:bg-emerald-400/20">
-                    Diseñador UX Desarrollador Web
+                    Diseñador UX/UI Front-End Developer
                   </Badge>
                   <h1 className="text-4xl md:text-6xl font-bold mb-4">
                     Hola, soy{" "}
