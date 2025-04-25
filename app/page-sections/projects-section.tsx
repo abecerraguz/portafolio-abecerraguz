@@ -71,12 +71,12 @@ export default function ProjectsSection() {
             demo: "https://www.abecerraguz.com/",
         },
         {
-            title: "Aplicación de Recetas",
-            description: "Aplicación para buscar, guardar y compartir recetas de cocina favoritas.",
-            technologies: ["Vue.js", "Vuex", "Node.js"],
-            image: "/placeholder.svg?height=200&width=350",
+            title: "Metro World News Publimetro",
+            description: "Diseño y desarrollo de componentes Front End, basado en ReactJS para themes plataforma ARC de Amazon Web Service.",
+            technologies: ["React.js", "Node.js", "ARC"],
+            image: "/metro-world-news-publimetro.svg?height=200&width=350",
             github: "#",
-            demo: "#",
+            demo: "https://www.metroworldnews.com/",
         },
         {
             title: "Dashboard Analítico",
