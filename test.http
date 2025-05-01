@@ -1,0 +1,17 @@
+### Publicación real en LinkedIn (¡ojo: esto publicará en tu feed!)
+
+POST http://localhost:3000/api/publicar-en-linkedin
+Content-Type: application/json
+
+{
+  "title": "Nullish Coalescing (??)",
+  "excerpt": "El operador ?? de ES2020 permite asignar valores por defecto solo si algo es null o undefined.",
+  "imageUrl": "https://portafolio-abecerraguz-production.up.railway.app/uploads/nullish_coalescing_2b8614a2df.svg",
+  "slug": "nullish-coalescing",
+  "tags": ["JavaScript", "ES2020", "DesarrolloWeb"],
+  "isTest": false
+}
+
+
+GET https://api.linkedin.com/v2/me
+Authorization: Bearer TU_ACCESS_TOKEN

@@ -87,3 +87,10 @@
   border-color: #444;
 }
 
+.dark\:prose-pre\:bg-gray-800 :is(:where(pre):not(:where([class~="not-prose"],[class~="not-prose"] *))):is(.dark *) {
+  background-color: #1e1e1e !important;
+  border-radius: 0;
+  border-top: 1px solid rgb(255 255 255 / 9%);
+  border-bottom: 1px solid rgb(255 255 255 / 9%);
+  padding: 0;
+}
