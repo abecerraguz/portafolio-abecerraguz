@@ -108,8 +108,8 @@ export default function NavSection({ itemsToShow, linkOverrides, linkLabes }: Na
         <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-[#0f172a]/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
           <div className="container mx-auto px-4 flex justify-between items-center h-16">
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-lime-400 to-amber-500 flex items-center justify-center text-white font-bold">
-                AB
+              <div className="bg-gradient-to-r from-lime-500 to-amber-500 bg-clip-text text-transparent text-xl">
+                  AbecerraGuz
               </div>
               <span className="font-bold text-xl hidden sm:block">Mi Portafolio</span>
             </div>
