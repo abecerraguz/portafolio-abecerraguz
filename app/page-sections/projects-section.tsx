@@ -31,6 +31,14 @@ export default function ProjectsSection() {
 
     const projects = [
         {
+            title: "Equilec",
+            description: "Desarrollo de un sitio web responsivo para Equilec, construido con Next.js y WordPress Headless, que integra un catálogo de productos, buscador avanzado y sistema de envío de cotizaciones en línea.",
+            technologies: ["NextJS","Typescript","Tailwind","Wordpress","GraphQL"],
+            image: "/equilec.svg?height=200&width=350",
+            github: "#",
+            demo: "https://www.equilec.cl/"
+        },
+        {
             title: "BikesShop App",
             description: "Una aplicación web de administración de tiendas de bicicletas y gestión de perfiles de usarios.",
             technologies: ["HTML5","CSS3", "JavaScript", "Node", 'Express',"Postgresql"],
@@ -77,31 +85,7 @@ export default function ProjectsSection() {
             image: "/metro-world-news-publimetro.svg?height=200&width=350",
             github: "#",
             demo: "https://www.metroworldnews.com/",
-        },
-        {
-            title: "Dashboard Analítico",
-            description: "Panel de control con gráficos interactivos para visualizar datos empresariales.",
-            technologies: ["React", "D3.js", "Express"],
-            image: "/placeholder.svg?height=200&width=350",
-            github: "#",
-            demo: "#",
-        },
-        {
-            title: "App de Fitness",
-            description: "Aplicación para seguimiento de entrenamientos y progreso físico.",
-            technologies: ["React Native", "Redux", "Firebase"],
-            image: "/placeholder.svg?height=200&width=350",
-            github: "#",
-            demo: "#",
-        },
-        {
-            title: "Plataforma Educativa",
-            description: "Sistema de gestión de aprendizaje con cursos, evaluaciones y certificados.",
-            technologies: ["Angular", "Node.js", "MongoDB"],
-            image: "/placeholder.svg?height=200&width=350",
-            github: "#",
-            demo: "#",
-        },
+        }
     ]
     return (
         <section
