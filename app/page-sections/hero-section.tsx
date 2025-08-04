@@ -145,6 +145,7 @@ export default function HeroSection() {
                       variant="outline"
                       className="border-gray-300 dark:border-gray-700"
                       onClick={() => {
+                          window.open("/curriculum-abecerraguz-2025.pdf", "_blank");
                           const link = document.createElement("a")
                           link.href = "/curriculum-abecerraguz-2025.pdf"
                           link.download = "curriculum-abecerraguz-2025.pdf"
