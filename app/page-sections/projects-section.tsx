@@ -31,6 +31,14 @@ export default function ProjectsSection() {
 
     const projects = [
         {
+            title: "Beltra",
+            description: "Desarrollo de plataforma inmobiliaria Headless con Next.js, TypeScript, Tailwind CSS, WordPress y GraphQL. Integra catálogo de proyectos, buscador y formularios, priorizando experiencia de usuario, rendimiento y captación.",
+            technologies: ["NextJS","Typescript","Tailwind","Wordpress","GraphQL"],
+            image: "/beltra.svg?height=200&width=350",
+            github: "#",
+            demo: "https://beltra.cl/"
+        },
+        {
             title: "Equilec",
             description: "Desarrollo de un sitio web responsivo para Equilec, construido con Next.js y WordPress Headless, que integra un catálogo de productos, buscador avanzado y sistema de envío de cotizaciones en línea.",
             technologies: ["NextJS","Typescript","Tailwind","Wordpress","GraphQL"],

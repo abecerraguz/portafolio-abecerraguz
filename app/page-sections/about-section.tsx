@@ -28,7 +28,7 @@ export default function AboutSection() {
         </Badge>
         <h2 className="text-3xl font-bold mb-4">Conóceme mejor</h2>
         <p className="text-gray-600 dark:text-gray-400 text-xl">
-          Soy un desarrollador web con pasión por aprender nuevas tecnologías y crear soluciones innovadoras.
+          Soy Diseñador UX/UI con perfil Full Stack JavaScript. Mi trabajo integra experiencia de usuario, diseño de interfaces y desarrollo web para construir productos digitales que equilibren claridad visual, funcionalidad y solidez técnica.
         </p>
       </div>
 
@@ -36,11 +36,11 @@ export default function AboutSection() {
         <div>
           <h3 className="text-2xl font-semibold mb-4">Mi historia</h3>
 
-          <p className="text-gray-600 dark:text-gray-300 mb-6">Soy un diseñador, Máster en Diseño y Comunicación Multimedia, y desarrollador web con pasión por seguir aprendiendo nuevas tecnologías y crear soluciones innovadoras. Mi objetivo es combinar diseño y funcionalidad para ofrecer experiencias de usuario excepcionales.</p>
+          <p className="text-gray-600 dark:text-gray-300 mb-6">Soy diseñador de formación y profesional del ámbito digital, con una trayectoria que integra UX/UI, frontend y desarrollo Full Stack JavaScript. Mi experiencia me ha permitido trabajar la interfaz no solo desde lo visual, sino también desde la lógica funcional y la implementación técnica.</p>
 
-          <p className="text-gray-600 dark:text-gray-300 mb-6">Actualmente estoy enfocado en el desarrollo frontend con Next.js y React, aunque también cuento con experiencia en Node.js y bases de datos. Me encanta resolver problemas, aprender constantemente y colaborar en equipos multidisciplinarios.</p>
+          <p className="text-gray-600 dark:text-gray-300 mb-6">Trabajo con tecnologías como React, Next.js, Node.js, Express, PostgreSQL y arquitecturas Headless con WordPress y GraphQL, buscando siempre que diseño y desarrollo dialoguen de forma natural en cada proyecto.</p>
 
-          <p className="text-gray-600 dark:text-gray-300 mb-6">Me desempeño como Diseñador UI & Front-End en Publimetro, además de ser académico en Desafío Latam. Soy egresado del Bootcamp de Desarrollo Full-Stack de Coding Dojo, lo que me ha permitido fortalecer mis habilidades tanto en frontend como en backend.</p>
+          <p className="text-gray-600 dark:text-gray-300 mb-6">Actualmente combino mi trabajo en desarrollo Full Stack con la docencia en Duoc UC, aportando una mirada integral, práctica y centrada en la construcción de experiencias digitales de calidad.</p>
 
           <div className="grid grid-cols-2 gap-4 mt-8">
             <div className="p-4 rounded-lg bg-white/80 dark:bg-gray-800/80 shadow-sm backdrop-blur-sm">
@@ -55,7 +55,9 @@ export default function AboutSection() {
         </div>
 
         <div>
-          <h3 className="text-2xl font-semibold mb-6">Mis habilidades</h3>
+          <h3 className="text-2xl font-semibold mb-6">Diseño, desarrollo y herramientas</h3>
+          <p className="text-gray-600 dark:text-gray-300 mb-6">Mi perfil me permite participar en distintas etapas del producto digital: definición visual, construcción de interfaces, integración con servicios, manejo de datos y mejora continua de la experiencia de usuario.</p>
+      
           <Tabs defaultValue="Frontend" className="w-full">
             <TabsList className="grid grid-cols-3 mb-6">
               {skills.map((skill) => (

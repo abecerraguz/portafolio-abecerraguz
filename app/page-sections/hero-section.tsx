@@ -123,7 +123,7 @@ export default function HeroSection() {
                   className="order-2 md:order-1"
                 >
                   <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/10 dark:text-lime-400 hover:bg-emerald-500/20 dark:hover:bg-emerald-400/20">
-                    Diseñador UX/UI Front-End Developer
+                    UX/UI Designer | Full Stack JavaScript
                   </Badge>
                   <h1 className="text-4xl md:text-6xl font-bold mb-4">
                     Hola, soy{" "}
@@ -132,7 +132,7 @@ export default function HeroSection() {
                     </span>
                   </h1>
                   <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                    Desarrollador frontend apasionado por crear experiencias web atractivas y funcionales.
+                   Diseñador UX/UI con perfil Full Stack JavaScript, enfocado en crear experiencias digitales claras, funcionales y escalables, integrando diseño, frontend y backend en soluciones centradas en el usuario.
                   </p>
                   <div className="flex flex-wrap gap-4">
                     <Button
@@ -145,10 +145,10 @@ export default function HeroSection() {
                       variant="outline"
                       className="border-gray-300 dark:border-gray-700"
                       onClick={() => {
-                          window.open("/curriculum-abecerraguz-2025.pdf", "_blank");
+                          window.open("/curriculum-abecerraguz-2026.pdf", "_blank");
                           const link = document.createElement("a")
-                          link.href = "/curriculum-abecerraguz-2025.pdf"
-                          link.download = "curriculum-abecerraguz-2025.pdf"
+                          link.href = "/curriculum-abecerraguz-2026.pdf"
+                          link.download = "curriculum-abecerraguz-2026.pdf"
                           document.body.appendChild(link)
                           link.click()
                           document.body.removeChild(link)

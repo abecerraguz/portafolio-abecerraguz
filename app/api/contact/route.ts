@@ -1,51 +1,42 @@
 import { type NextRequest, NextResponse } from "next/server"
-import nodemailer from "nodemailer"
-import { getAccessToken } from "@/src/lib/getAccessToken" // ajusta la ruta si es necesario
+import { Resend } from "resend"
+
+// Inicializar Resend con la API key
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: NextRequest) {
   try {
-
     const { name, email, subject, message } = await request.json()
 
+    // Validar campos obligatorios
     if (!name || !email || !subject || !message) {
       return NextResponse.json({ error: "Todos los campos son obligatorios" }, { status: 400 })
     }
 
-    const accessToken = await getAccessToken()
+    // Validar que la API key esté configurada
+    if (!process.env.RESEND_API_KEY) {
+      console.error("RESEND_API_KEY no está configurada")
+      return NextResponse.json(
+        { error: "Configuración de correo no disponible" },
+        { status: 500 }
+      )
+    }
 
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: true,
-      auth: {
-        type: "OAuth2",
-        user: process.env.EMAIL_USER,
-        clientId: process.env.CLIENT_ID,
-        clientSecret: process.env.CLIENT_SECRET,
-        refreshToken: process.env.REFRESH_TOKEN,
-        accessToken: `${accessToken}`
-      },
-    })
+    // Validar que el email de destino esté configurado
+    if (!process.env.RESEND_TO_EMAIL) {
+      console.error("RESEND_TO_EMAIL no está configurada")
+      return NextResponse.json(
+        { error: "Configuración de correo no disponible" },
+        { status: 500 }
+      )
+    }
 
-    // Verificar la configuración del transporter
-    await transporter.verify().catch((error: Error) => {
-      console.error("Error al verificar el transporter:", error)
-      throw new Error("Error de configuración del servidor de correo")
-    })
-
-    const mailOptions = {
-      from: `"Formulario de Contacto" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_TO || process.env.EMAIL_USER,
+    // Enviar email usando Resend
+    const { data, error } = await resend.emails.send({
+      from: process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
+      to: process.env.RESEND_TO_EMAIL,
       replyTo: email,
       subject: `Nuevo mensaje de contacto: ${subject}`,
-      text: `
-        Nombre: ${name}
-        Email: ${email}
-        Asunto: ${subject}
-        
-        Mensaje:
-        ${message}
-      `,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #10b981;">Nuevo mensaje de contacto</h2>
@@ -58,13 +49,22 @@ export async function POST(request: NextRequest) {
           </div>
         </div>
       `,
+    })
+
+    if (error) {
+      console.error("Error de Resend:", error)
+      return NextResponse.json(
+        { error: "Error al enviar el mensaje" },
+        { status: 500 }
+      )
     }
 
-    await transporter.sendMail(mailOptions)
-
-    return NextResponse.json({ success: true })
+    return NextResponse.json({ success: true, id: data?.id })
   } catch (error) {
     console.error("Error al enviar el correo:", error)
-    return NextResponse.json({ error: "Error al enviar el mensaje" }, { status: 500 })
+    return NextResponse.json(
+      { error: "Error al enviar el mensaje" },
+      { status: 500 }
+    )
   }
 }
