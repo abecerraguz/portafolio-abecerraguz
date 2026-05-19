@@ -98,11 +98,10 @@ export default function HeroSection() {
   return (
     <ThemeProvider attribute="class" defaultTheme={theme} enableSystem>
       <div className="min-h-screen bg-gray-50 dark:bg-[#0f172a] text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
-        {/* Main Content */}
-        <main className="pt-16">
-          {/* Hero Section - Gradiente azul a negro con partículas */}
+          {/* Hero Section */}
           <section
             id="home"
+            aria-label="Inicio – Presentación"
             className="min-h-screen flex items-center py-20 relative overflow-hidden"
             // style={{
             //   background:
@@ -143,6 +142,7 @@ export default function HeroSection() {
                     </Button>
                     <Button
                       variant="outline"
+                      aria-label="Descargar curriculum vitae de Alejandro Becerra Guzmán en PDF"
                       className="border-gray-300 dark:border-gray-700"
                       onClick={() => {
                           window.open("/curriculum-abecerraguz-2026.pdf", "_blank");
@@ -154,8 +154,8 @@ export default function HeroSection() {
                           document.body.removeChild(link)
                       }}
                     >
-                    Descargar CV
-                  </Button>
+                      Descargar CV
+                    </Button>
                   </div>
 
                   <div className="mt-12 flex gap-4">
@@ -207,7 +207,7 @@ export default function HeroSection() {
                     <div className="w-64 h-64 md:w-80 md:h-80 rounded-full border-2 border-gray-200 dark:border-gray-800 overflow-hidden relative z-10">
                       <img
                         src="/abecerraguz.jpg?height=400&width=400"
-                        alt="Tu foto de perfil"
+                        alt="Alejandro Becerra Guzmán, Desarrollador Full Stack JavaScript y Docente"
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -219,11 +219,6 @@ export default function HeroSection() {
             {/* Decoración de fondo */}
             <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/10 to-transparent dark:from-black/20 dark:to-transparent"></div>
           </section>
-
-        
-        </main>
-
-       
       </div>
     </ThemeProvider>
   )

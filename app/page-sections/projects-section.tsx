@@ -71,14 +71,6 @@ export default function ProjectsSection() {
             demo: "https://www.latribuna.cl/"
         },
         {
-            title: "Gorky Restaurant",
-            description: "Landing Restaurant Gorky para mostrar sus paellas.",
-            technologies: ["UI", "HTML5", "CSS3", "JavaScript", "PHP", "Wordpress"],
-            image: "/gorky-restaurant.svg?height=200&width=350",
-            github: "#",
-            demo: "https://gorky.cl/",
-        },
-        {
             title: "Mi Portafolio",
             description: "Portafolio personal auto administrable ",
             technologies: ["UX","UI", "HTML5", "CSS3", "Tailwind", "JavaScript", "Next.js", "Strapi", "Postgresql" ],
@@ -98,6 +90,7 @@ export default function ProjectsSection() {
     return (
         <section
             id="projects"
+            aria-labelledby="projects-heading"
             className="py-20 relative"
         // style={{
         //   background:
@@ -111,7 +104,7 @@ export default function ProjectsSection() {
                     <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/10 dark:text-lime-400 hover:bg-emerald-500/20 dark:hover:bg-emerald-400/20">
                         Proyectos
                     </Badge>
-                    <h2 className="text-3xl font-bold mb-4">Mi trabajo reciente</h2>
+                    <h2 id="projects-heading" className="text-3xl font-bold mb-4">Mi trabajo reciente</h2>
                     <p className="text-gray-600 dark:text-gray-400 text-xl">
                         Aquí hay una selección de proyectos en los que he trabajado recientemente.
                     </p>
@@ -133,22 +126,28 @@ export default function ProjectsSection() {
                                         alt={project.title}
                                         className="w-full h-48 object-cover"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end justify-between p-4">
-                                        <div className="flex gap-3">
-                                            <a
-                                                href={project.github}
-                                                className="p-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors"
-                                            >
-                                                <Github size={18} className="text-white" />
-                                            </a>
-                                            <a
-                                                href={project.demo}
-                                                className="p-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors"
-                                            >
-                                                <ExternalLink size={18} className="text-white" />
-                                            </a>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end justify-between p-4" aria-hidden="true">
+                                            <div className="flex gap-3">
+                                                <a
+                                                    href={project.github}
+                                                    aria-label={`Ver código de ${project.title} en GitHub`}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="p-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors"
+                                                >
+                                                    <Github size={18} className="text-white" aria-hidden="true" />
+                                                </a>
+                                                <a
+                                                    href={project.demo}
+                                                    aria-label={`Ver demo de ${project.title}`}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="p-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors"
+                                                >
+                                                    <ExternalLink size={18} className="text-white" aria-hidden="true" />
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
                                 </div>
                                 <CardContent className="p-6">
                                     <h3 className="text-xl font-semibold mb-2">{project.title}</h3>

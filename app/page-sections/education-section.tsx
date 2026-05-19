@@ -43,6 +43,7 @@ export default function EducationSection() {
     return (
         <section
             id="education"
+            aria-labelledby="education-heading"
             className="py-20 relative"
         // style={{
         //   background:
@@ -56,7 +57,7 @@ export default function EducationSection() {
                     <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/10 dark:text-lime-400 hover:bg-emerald-500/20 dark:hover:bg-emerald-400/20">
                         Educación
                     </Badge>
-                    <h2 className="text-3xl font-bold mb-4">Mi formación académica</h2>
+                    <h2 id="education-heading" className="text-3xl font-bold mb-4">Mi formación académica</h2>
                     <p className="text-gray-600 dark:text-gray-400 text-xl">Mi trayectoria educativa y formación profesional.</p>
                 </div>
 

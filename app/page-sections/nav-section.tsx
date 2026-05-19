@@ -80,7 +80,8 @@ export default function NavSection({ itemsToShow, linkOverrides, linkLabes }: Na
   const allNavItems: NavItem[] = [
     { id: "home", label: "Inicio", icon: <Code size={18} /> },
     { id: "about", label: "Sobre mí", icon: <User size={18} /> },
-    { id: "projects", label: "Proyectos", icon: <Briefcase size={18} /> },
+    { id: "experience", label: "Experiencia", icon: <Briefcase size={18} /> },
+    { id: "projects", label: "Proyectos", icon: <Globe size={18} /> },
     { id: "education", label: "Educación", icon: <GraduationCap size={18} /> },
     { id: "blog", label: "Blog", icon: <NotebookPen size={18} /> },
     { id: "contact", label: "Contacto", icon: <Mail size={18} /> },
@@ -116,7 +117,7 @@ export default function NavSection({ itemsToShow, linkOverrides, linkLabes }: Na
 
             {/* Desktop Navigation */}
             {navItems.length > 0 && (
-              <nav className="hidden md:flex items-center gap-1">
+              <nav aria-label="Navegación principal" className="hidden md:flex items-center gap-1">
                 {navItems.map((item) => (
                   <a
                     key={item.id}
@@ -140,17 +141,26 @@ export default function NavSection({ itemsToShow, linkOverrides, linkLabes }: Na
             )}
 
             <div className="flex items-center gap-2">
-              <Button variant="ghost" size="icon" onClick={() => setDarkMode(!darkMode)} className="rounded-full">
-                {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label={darkMode ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+                onClick={() => setDarkMode(!darkMode)}
+                className="rounded-full"
+              >
+                {darkMode ? <Sun size={20} aria-hidden="true" /> : <Moon size={20} aria-hidden="true" />}
               </Button>
 
               <Button
                 variant="ghost"
                 size="icon"
+                aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-nav"
                 className="md:hidden rounded-full"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
-                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {mobileMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
               </Button>
 
               {/* {itemsToShow?.includes("contact") && (
@@ -180,7 +190,7 @@ export default function NavSection({ itemsToShow, linkOverrides, linkLabes }: Na
               exit={{ opacity: 0, y: -20 }}
               className="fixed inset-0 z-40 bg-white dark:bg-[#0f172a] pt-16"
             >
-              <nav className="container mx-auto px-4 py-8 flex flex-col gap-4">
+              <nav id="mobile-nav" aria-label="Menú de navegación móvil" className="container mx-auto px-4 py-8 flex flex-col gap-4">
                 {navItems.map((item) => (
                   <a
                     key={item.id}

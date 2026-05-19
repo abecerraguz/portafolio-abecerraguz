@@ -13,6 +13,7 @@ export default function AboutSection() {
   return (
     <section
     id="about"
+    aria-labelledby="about-heading"
     className="py-20 relative"
     // style={{
     //   background:
@@ -26,7 +27,7 @@ export default function AboutSection() {
         <Badge className="mb-4 bg-emerald-500/10 text-emerald-500 dark:bg-emerald-400/10 dark:text-lime-400 hover:bg-emerald-500/20 dark:hover:bg-emerald-400/20">
           Sobre mí
         </Badge>
-        <h2 className="text-3xl font-bold mb-4">Conóceme mejor</h2>
+        <h2 id="about-heading" className="text-3xl font-bold mb-4">Conóceme mejor</h2>
         <p className="text-gray-600 dark:text-gray-400 text-xl">
           Soy Diseñador UX/UI con perfil Full Stack JavaScript. Mi trabajo integra experiencia de usuario, diseño de interfaces y desarrollo web para construir productos digitales que equilibren claridad visual, funcionalidad y solidez técnica.
         </p>
@@ -40,16 +41,20 @@ export default function AboutSection() {
 
           <p className="text-gray-600 dark:text-gray-300 mb-6">Trabajo con tecnologías como React, Next.js, Node.js, Express, PostgreSQL y arquitecturas Headless con WordPress y GraphQL, buscando siempre que diseño y desarrollo dialoguen de forma natural en cada proyecto.</p>
 
-          <p className="text-gray-600 dark:text-gray-300 mb-6">Actualmente combino mi trabajo en desarrollo Full Stack con la docencia en Duoc UC, aportando una mirada integral, práctica y centrada en la construcción de experiencias digitales de calidad.</p>
+          <p className="text-gray-600 dark:text-gray-300 mb-6">Paralelamente, ejerzo la docencia en <strong className="text-gray-800 dark:text-gray-100">Duoc UC</strong> y lo hice durante años en <strong className="text-gray-800 dark:text-gray-100">Desafío Latam</strong>, formando estudiantes en desarrollo web, JavaScript moderno y construcción de interfaces. La enseñanza me ha permitido profundizar en buenas prácticas, comunicación técnica y resolución estructurada de problemas.</p>
 
-          <div className="grid grid-cols-2 gap-4 mt-8">
+          <div className="grid grid-cols-3 gap-4 mt-8">
             <div className="p-4 rounded-lg bg-white/80 dark:bg-gray-800/80 shadow-sm backdrop-blur-sm">
               <div className="text-3xl font-bold text-amber-500 dark:text-amber-400 mb-1">16+</div>
-              <div className="text-gray-600 dark:text-gray-300">Años de experiencia</div>
+              <div className="text-gray-600 dark:text-gray-300 text-sm">Años de experiencia</div>
             </div>
             <div className="p-4 rounded-lg bg-white/80 dark:bg-gray-800/80 shadow-sm backdrop-blur-sm">
               <div className="text-3xl font-bold text-lime-500 dark:text-lime-500 mb-1">10+</div>
-              <div className="text-gray-600 dark:text-gray-300">Proyectos completados</div>
+              <div className="text-gray-600 dark:text-gray-300 text-sm">Proyectos completados</div>
+            </div>
+            <div className="p-4 rounded-lg bg-white/80 dark:bg-gray-800/80 shadow-sm backdrop-blur-sm">
+              <div className="text-3xl font-bold text-emerald-500 dark:text-emerald-400 mb-1">14+</div>
+              <div className="text-gray-600 dark:text-gray-300 text-sm">Años como docente</div>
             </div>
           </div>
         </div>
