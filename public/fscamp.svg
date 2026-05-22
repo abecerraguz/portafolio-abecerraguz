@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 200" width="350" height="200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1020"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#84cc16"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#84cc16" stroke-width="0.3" opacity="0.15"/>
+    </pattern>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="350" height="200" fill="url(#bg)"/>
+  <rect width="350" height="200" fill="url(#grid)"/>
+
+  <!-- Borde superior gradiente -->
+  <rect x="0" y="0" width="350" height="2" fill="url(#accent)"/>
+
+  <!-- Título centrado -->
+  <text x="175" y="92" font-family="ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="800" fill="#c5ff00" text-anchor="middle" letter-spacing="-0.5">FullStack</text>
+  <text x="175" y="122" font-family="ui-sans-serif, system-ui, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="-0.5">JS Camp</text>
+
+  <!-- Línea decorativa centrada -->
+  <rect x="145" y="132" width="60" height="2" rx="1" fill="url(#accent)"/>
+
+  <!-- Decoración: círculos -->
+  <circle cx="305" cy="95" r="58" fill="#84cc16" fill-opacity="0.03"/>
+  <circle cx="305" cy="95" r="36" fill="#84cc16" fill-opacity="0.05"/>
+  <circle cx="305" cy="95" r="2" fill="#c5ff00" fill-opacity="0.4"/>
+  <circle cx="44" cy="170" r="30" fill="#f59e0b" fill-opacity="0.03"/>
+</svg>

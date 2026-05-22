@@ -156,6 +156,18 @@ export default function HeroSection() {
                     >
                       Descargar CV
                     </Button>
+                    <Button
+                      variant="outline"
+                      aria-label="Ver el Bootcamp Full Stack JavaScript"
+                      className="border-lime-400/50 dark:border-lime-500/50 text-lime-600 dark:text-lime-400 hover:bg-lime-500/10"
+                      onClick={() => {
+                        const el = document.getElementById("bootcamp")
+                        if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" })
+                      }}
+                    >
+                      <BookOpen className="mr-2 h-4 w-4" />
+                      Ver Bootcamp
+                    </Button>
                   </div>
 
                   <div className="mt-12 flex gap-4">

@@ -31,6 +31,15 @@ export default function ProjectsSection() {
 
     const projects = [
         {
+            title: "FullStackJS Camp",
+            description: "Programa formativo Full Stack JavaScript de nivel Trainee. Desde HTML, CSS y JavaScript hasta React, Next.js, Node.js, PostgreSQL y Docker. 9 módulos · 65 temas · 316 horas lectivas.",
+            technologies: ["React", "Next.js", "Node.js", "PostgreSQL", "Docker", "TypeScript"],
+            image: "/fscamp.svg?height=200&width=350",
+            github: "https://github.com/abecerraguz/FullStackJS-Camp",
+            demo: "https://fscamp.abecerraguz.com/",
+            badge: "Educativo",
+        },
+        {
             title: "Beltra",
             description: "Desarrollo de plataforma inmobiliaria Headless con Next.js, TypeScript, Tailwind CSS, WordPress y GraphQL. Integra catálogo de proyectos, buscador y formularios, priorizando experiencia de usuario, rendimiento y captación.",
             technologies: ["NextJS","Typescript","Tailwind","Wordpress","GraphQL"],
@@ -150,7 +159,9 @@ export default function ProjectsSection() {
                                         </div>
                                 </div>
                                 <CardContent className="p-6">
-                                    <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <h3 className="text-xl font-semibold">{project.title}</h3>
+                                    </div>
                                     <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
                                     <div className="flex flex-wrap gap-2">
                                         {project.technologies.map((tech) => (
