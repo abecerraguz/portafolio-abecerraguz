@@ -199,11 +199,11 @@ export default function BootcampSection() {
                   Diseñado para llevar a estudiantes desde cero hasta la construcción y despliegue de aplicaciones
                   Full Stack modernas, con énfasis en buenas prácticas, arquitectura y herramientas del mercado laboral.
                 </p>
-                <p className="text-xs text-gray-400 dark:text-gray-500">
+                {/* <p className="text-xs text-gray-400 dark:text-gray-500">
                   Basado en el programa del curso{" "}
                   <strong className="text-gray-600 dark:text-gray-300">Reinvéntate 2025 · SENCE</strong>{" "}
                   de 296 horas.
-                </p>
+                </p> */}
               </CardContent>
             </Card>
 
