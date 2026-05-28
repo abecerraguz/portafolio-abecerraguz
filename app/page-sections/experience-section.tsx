@@ -8,7 +8,7 @@ import { Code2, GraduationCap } from "lucide-react"
 
 const devExperience = [
   {
-    period: "Mayo 2025 - Presente",
+    period: "Mayo 2025 - Enero 2026",
     title: "Desarrollo Full Stack",
     company: "Beltra Propiedades S.A.",
     area: "Área Marketing",
