@@ -4,8 +4,8 @@ import './globals.css'
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
-  title: 'Alejandro Becerra Guzmán – Desarrollador Full Stack JavaScript',
-  description: 'Desarrollador Full Stack JavaScript y Docente con más de 16 años de experiencia. Especializado en Next.js, React, Node.js, PostgreSQL y Tailwind CSS. Disponible para proyectos web en Chile.',
+  title: 'Alejandro Becerra Guzmán – UX/UI Designer & Full Stack JavaScript Developer',
+  description: 'UX/UI Designer & Full Stack JavaScript Developer con más de 16 años de experiencia. Especializado en React, Next.js, Node.js, PostgreSQL y arquitecturas Headless. Docente en Duoc UC. Disponible para proyectos web en Chile.',
   authors: [{ name: 'Alejandro Becerra Guzmán', url: 'https://www.abecerraguz.com' }],
   robots: {
     index: true,
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: 'Alejandro Becerra Guzmán – Desarrollador Full Stack JavaScript',
-    description: 'Portafolio profesional de Alejandro Becerra. Proyectos con Next.js, React, Node.js y PostgreSQL. Docente en Duoc UC.',
+    title: 'Alejandro Becerra Guzmán – UX/UI Designer & Full Stack JavaScript Developer',
+    description: 'Portafolio profesional de Alejandro Becerra. UX/UI Designer & Full Stack JavaScript Developer. Proyectos con React, Next.js, Node.js, PostgreSQL y WordPress Headless. Docente en Duoc UC.',
     url: 'https://www.abecerraguz.com',
     siteName: 'Portafolio Alejandro Becerra Guzmán',
     locale: 'es_CL',
@@ -29,20 +29,19 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Alejandro Becerra Guzmán – Desarrollador Full Stack JavaScript',
+        alt: 'Alejandro Becerra Guzmán – UX/UI Designer & Full Stack JavaScript Developer',
       },
     ],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Alejandro Becerra Guzmán – Desarrollador Full Stack JavaScript',
-    description: 'Portafolio profesional. Proyectos con Next.js, React, Node.js y PostgreSQL. Docente en Duoc UC.',
+    title: 'Alejandro Becerra Guzmán – UX/UI Designer & Full Stack JavaScript Developer',
+    description: 'Portafolio profesional. UX/UI Designer & Full Stack JavaScript Developer. Proyectos con React, Next.js, Node.js y PostgreSQL. Docente en Duoc UC.',
     images: ['/og-image.jpg'],
     creator: '@abecerraguz',
   },
 }
-
 export default function RootLayout({
   children,
 }: {
