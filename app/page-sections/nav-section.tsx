@@ -84,7 +84,7 @@ export default function NavSection({ itemsToShow, linkOverrides, linkLabes }: Na
     { id: "bootcamp", label: "Bootcamp", icon: <BookOpen size={18} /> },
     { id: "projects", label: "Proyectos", icon: <Globe size={18} /> },
     { id: "education", label: "Educación", icon: <GraduationCap size={18} /> },
-    { id: "blog", label: "Blog", icon: <NotebookPen size={18} /> },
+    // { id: "blog", label: "Blog", icon: <NotebookPen size={18} /> },
     { id: "contact", label: "Contacto", icon: <Mail size={18} /> },
   ]
 

@@ -24,7 +24,7 @@ export default function Home() {
         <BootcampSection />
         <ProjectsSection />
         <EducationSection />
-        <BlogSection />
+        {/* <BlogSection /> */}
         <ContactSection />
       </main>
       <FooterSection />
