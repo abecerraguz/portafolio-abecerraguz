@@ -31,6 +31,15 @@ export default function ProjectsSection() {
 
     const projects = [
         {
+            title: "Palvi Dashboard Ejecutivo",
+            description: "Prueba técnica orientada a un jefe de ventas: un dashboard ejecutivo que analiza métricas comerciales, compara períodos y genera insights accionables en lenguaje natural para priorizar decisiones en pocos minutos.",
+            technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "Chart.js"],
+            image: "/palvi.svg?height=200&width=350",
+            github: "https://github.com/abecerraguz/palvi",
+            demo: "https://palvi-one.vercel.app/",
+            badge: "Prueba técnica",
+        },
+        {
             title: "FullStackJS Camp",
             description: "Programa formativo Full Stack JavaScript de nivel Trainee. Desde HTML, CSS y JavaScript hasta React, Next.js, Node.js, PostgreSQL y Docker. 9 módulos · 65 temas · 316 horas lectivas.",
             technologies: ["React", "Next.js", "Node.js", "PostgreSQL", "Docker", "TypeScript"],

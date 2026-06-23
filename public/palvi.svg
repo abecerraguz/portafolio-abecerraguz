@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 200" width="350" height="200">
+  <defs>
+    <linearGradient id="bg-p" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1020"/>
+    </linearGradient>
+    <linearGradient id="accent-p" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <pattern id="grid-p" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#10b981" stroke-width="0.3" opacity="0.12"/>
+    </pattern>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="350" height="200" fill="url(#bg-p)"/>
+  <rect width="350" height="200" fill="url(#grid-p)"/>
+
+  <!-- Borde superior gradiente -->
+  <rect x="0" y="0" width="350" height="2" fill="url(#accent-p)"/>
+
+  <!-- Donut chart central -->
+  <!-- Pista base -->
+  <circle cx="175" cy="100" r="34" fill="none" stroke="#1e293b" stroke-width="11"/>
+  <!-- Segmento principal ~72% -->
+  <circle cx="175" cy="100" r="34" fill="none" stroke="#10b981" stroke-width="11"
+    stroke-dasharray="154 60" stroke-dashoffset="53"
+    stroke-linecap="round"/>
+  <!-- Segmento secundario ~18% -->
+  <circle cx="175" cy="100" r="34" fill="none" stroke="#34d399" stroke-width="11"
+    stroke-dasharray="38 176" stroke-dashoffset="-101"
+    stroke-linecap="round" opacity="0.45"/>
+
+  <!-- Texto interior del donut -->
+  <text x="175" y="97" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="800" fill="#f8fafc" text-anchor="middle">72%</text>
+  <text x="175" y="110" font-family="ui-sans-serif, system-ui, sans-serif" font-size="6.5" font-weight="400" fill="#94a3b8" text-anchor="middle" letter-spacing="1">WIN RATE</text>
+
+  <!-- Círculos decorativos -->
+  <circle cx="310" cy="94" r="58" fill="#10b981" fill-opacity="0.03"/>
+  <circle cx="310" cy="94" r="36" fill="#10b981" fill-opacity="0.05"/>
+  <circle cx="40"  cy="170" r="30" fill="#34d399" fill-opacity="0.04"/>
+</svg>
